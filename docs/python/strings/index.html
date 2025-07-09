@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon shortcut" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/favicon.png" type="image/png" />
+<link rel="icon" href="/favicon.png" type="image/png" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+<link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
+<title>Strings – CoderArms Blog</title>
+  <meta name="description" content=" In all programming languages, including Python, the string data type represents a fundamental data type. In Python, a string is defined as a sequence of characters enclosed within single (’…’), double (&#34;…&#34;), or triple quotes (’’’…’’’ or “”&#34;…&#34;&#34;&#34;). This sequence can include alphabets, digits, symbols, or Unicode characters.
+Memory Allocation Basics Traditionally, each character was considered to occupy 1 byte of memory, with the total string size computed as the number of characters multiplied by one byte. For example, the string “hello” corresponds to the ASCII values [104, 101, 108, 108, 111] and is stored in five contiguous memory locations—i.e., five sequential bytes in memory." /><link rel="canonical" href="/docs/python/strings/" itemprop="url" />
+
+<meta property="og:title" content="Strings" />
+<meta property="og:description" content="
+In all programming languages, including Python, the string data type represents a fundamental data type. In Python, a string is defined as a sequence of characters enclosed within single (&rsquo;&hellip;&rsquo;), double (&quot;&hellip;&quot;), or triple quotes (&rsquo;&rsquo;&rsquo;&hellip;&rsquo;&rsquo;&rsquo; or &ldquo;&rdquo;&quot;&hellip;&quot;&quot;&quot;). This sequence can include alphabets, digits, symbols, or Unicode characters.
+Memory Allocation Basics
+    Traditionally, each character was considered to occupy 1 byte of memory, with the total string size computed as the number of characters multiplied by one byte. For example, the string &ldquo;hello&rdquo; corresponds to the ASCII values [104, 101, 108, 108, 111] and is stored in five contiguous memory locations—i.e., five sequential bytes in memory." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/python/strings/" /><meta property="article:section" content="docs" />
+
+
+
+  <meta itemprop="name" content="Strings">
+  <meta itemprop="description" content="In all programming languages, including Python, the string data type represents a fundamental data type. In Python, a string is defined as a sequence of characters enclosed within single (’…’), double (&#34;…&#34;), or triple quotes (’’’…’’’ or “”&#34;…&#34;&#34;&#34;). This sequence can include alphabets, digits, symbols, or Unicode characters.
+Memory Allocation Basics Traditionally, each character was considered to occupy 1 byte of memory, with the total string size computed as the number of characters multiplied by one byte. For example, the string “hello” corresponds to the ASCII values [104, 101, 108, 108, 111] and is stored in five contiguous memory locations—i.e., five sequential bytes in memory.">
+  <meta itemprop="wordCount" content="1813">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Strings">
+  <meta name="twitter:description" content="In all programming languages, including Python, the string data type represents a fundamental data type. In Python, a string is defined as a sequence of characters enclosed within single (’…’), double (&#34;…&#34;), or triple quotes (’’’…’’’ or “”&#34;…&#34;&#34;&#34;). This sequence can include alphabets, digits, symbols, or Unicode characters.
+Memory Allocation Basics Traditionally, each character was considered to occupy 1 byte of memory, with the total string size computed as the number of characters multiplied by one byte. For example, the string “hello” corresponds to the ASCII values [104, 101, 108, 108, 111] and is stored in five contiguous memory locations—i.e., five sequential bytes in memory.">
+
+    <link rel="preload" href="/css/compiled/main.min.9a2a4c6e602ce30f10fa86afbb1ce624db853742eeccc2e954764594ee62c18f.css" as="style" integrity="sha256-mipMbmAs4w8Q&#43;oavuxzmJNuFN0LuzMLpVHZFlO5iwY8=" />
+    <link href="/css/compiled/main.min.9a2a4c6e602ce30f10fa86afbb1ce624db853742eeccc2e954764594ee62c18f.css" rel="stylesheet" integrity="sha256-mipMbmAs4w8Q&#43;oavuxzmJNuFN0LuzMLpVHZFlO5iwY8=" />
+
+
+
+  <link href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" rel="stylesheet" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" />
+
+
+  <script>
+     
+    const defaultTheme = 'light';
+
+    const setDarkTheme = () => {
+      document.documentElement.classList.add("dark");
+      document.documentElement.style.colorScheme = "dark";
+    }
+    const setLightTheme = () => {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.style.colorScheme = "light";
+    }
+
+    if ("color-theme" in localStorage) {
+      localStorage.getItem("color-theme") === "dark" ? setDarkTheme() : setLightTheme();
+    } else {
+      defaultTheme === "dark" ? setDarkTheme() : setLightTheme();
+      if (defaultTheme === "system") {
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? setDarkTheme() : setLightTheme();
+      }
+    }
+  </script>
+
+  
+</head>
+<body dir="ltr"><div class="nav-container hx-sticky hx-top-0 hx-z-20 hx-w-full hx-bg-transparent print:hx-hidden">
+  <div class="nav-container-blur hx-pointer-events-none hx-absolute hx-z-[-1] hx-h-full hx-w-full hx-bg-white dark:hx-bg-dark hx-shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] contrast-more:hx-shadow-[0_0_0_1px_#000] dark:hx-shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] contrast-more:dark:hx-shadow-[0_0_0_1px_#fff]"></div>
+
+  <nav class="hx-mx-auto hx-flex hx-items-center hx-justify-end hx-gap-2 hx-h-16 hx-px-6 hx-max-w-[90rem]">
+    <a class="hx-flex hx-items-center hover:hx-opacity-75 ltr:hx-mr-auto rtl:hx-ml-auto" href="/blog">
+        <img class="hx-mr-2 hx-block dark:hx-hidden" src="/images/favicon.png" alt="CoderArms Blog" height="20" width="40" />
+        <img class="hx-mr-2 hx-hidden dark:hx-block" src="/images/favicon.png" alt="CoderArms Blog" height="20" width="40" />
+        <span class="hx-mr-2 hx-font-extrabold hx-inline hx-select-none" title="CoderArms Blog">CoderArms Blog</span>
+    </a><a
+            title="Tutorials"
+            href="/docs"
+            
+            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-font-medium"
+          >
+            <span class="hx-text-center">Tutorials</span>
+          </a><a
+            title="Blog"
+            href="/blog"
+            
+            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"
+          >
+            <span class="hx-text-center">Blog</span>
+          </a><a
+            title="About"
+            href="/about"
+            
+            class="hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200"
+          >
+            <span class="hx-text-center">About</span>
+          </a><div class="search-wrapper hx-relative md:hx-w-64">
+  <div class="hx-relative hx-flex hx-items-center hx-text-gray-900 contrast-more:hx-text-gray-800 dark:hx-text-gray-300 contrast-more:dark:hx-text-gray-300">
+    <input
+      placeholder="Search..."
+      class="search-input hx-block hx-w-full hx-appearance-none hx-rounded-lg hx-px-3 hx-py-2 hx-transition-colors hx-text-base hx-leading-tight md:hx-text-sm hx-bg-black/[.05] dark:hx-bg-gray-50/10 focus:hx-bg-white dark:focus:hx-bg-dark placeholder:hx-text-gray-500 dark:placeholder:hx-text-gray-400 contrast-more:hx-border contrast-more:hx-border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="hx-absolute hx-my-1.5 hx-select-none ltr:hx-right-1.5 rtl:hx-left-1.5 hx-h-5 hx-rounded hx-bg-white hx-px-1.5 hx-font-mono hx-text-[10px] hx-font-medium hx-text-gray-500 hx-border dark:hx-border-gray-100/20 dark:hx-bg-dark/50 contrast-more:hx-border-current contrast-more:hx-text-current contrast-more:dark:hx-border-current hx-items-center hx-gap-1 hx-transition-opacity hx-pointer-events-none hx-hidden sm:hx-flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="search-results hextra-scrollbar hx-hidden hx-border hx-border-gray-200 hx-bg-white hx-text-gray-100 dark:hx-border-neutral-800 dark:hx-bg-neutral-900 hx-absolute hx-top-full hx-z-20 hx-mt-2 hx-overflow-auto hx-overscroll-contain hx-rounded-xl hx-py-2.5 hx-shadow-xl hx-max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] md:hx-max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] hx-inset-x-0 ltr:md:hx-left-auto rtl:md:hx-right-auto contrast-more:hx-border contrast-more:hx-border-gray-900 contrast-more:dark:hx-border-gray-50 hx-w-screen hx-min-h-[100px] hx-max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+<button type="button" aria-label="Menu" class="hamburger-menu -hx-mr-2 hx-rounded hx-p-2 active:hx-bg-gray-400/20 md:hx-hidden"><svg height=24 fill="none" viewBox="0 0 24 24" stroke="currentColor"><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8H20"></path></g><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16H20"></path></g></svg></button>
+  </nav>
+</div>
+
+  <div class='hx-mx-auto hx-flex hx-max-w-screen-xl'>
+    <div class="mobile-menu-overlay [transition:background-color_1.5s_ease] hx-fixed hx-inset-0 hx-z-10 hx-bg-black/80 dark:hx-bg-black/60 hx-hidden"></div>
+<aside class="sidebar-container hx-flex hx-flex-col print:hx-hidden md:hx-top-16 md:hx-shrink-0 md:hx-w-64 md:hx-self-start max-md:[transform:translate3d(0,-100%,0)] md:hx-sticky">
+  
+  <div class="hx-px-4 hx-pt-4 md:hx-hidden">
+    <div class="search-wrapper hx-relative md:hx-w-64">
+  <div class="hx-relative hx-flex hx-items-center hx-text-gray-900 contrast-more:hx-text-gray-800 dark:hx-text-gray-300 contrast-more:dark:hx-text-gray-300">
+    <input
+      placeholder="Search..."
+      class="search-input hx-block hx-w-full hx-appearance-none hx-rounded-lg hx-px-3 hx-py-2 hx-transition-colors hx-text-base hx-leading-tight md:hx-text-sm hx-bg-black/[.05] dark:hx-bg-gray-50/10 focus:hx-bg-white dark:focus:hx-bg-dark placeholder:hx-text-gray-500 dark:placeholder:hx-text-gray-400 contrast-more:hx-border contrast-more:hx-border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="hx-absolute hx-my-1.5 hx-select-none ltr:hx-right-1.5 rtl:hx-left-1.5 hx-h-5 hx-rounded hx-bg-white hx-px-1.5 hx-font-mono hx-text-[10px] hx-font-medium hx-text-gray-500 hx-border dark:hx-border-gray-100/20 dark:hx-bg-dark/50 contrast-more:hx-border-current contrast-more:hx-text-current contrast-more:dark:hx-border-current hx-items-center hx-gap-1 hx-transition-opacity hx-pointer-events-none hx-hidden sm:hx-flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="search-results hextra-scrollbar hx-hidden hx-border hx-border-gray-200 hx-bg-white hx-text-gray-100 dark:hx-border-neutral-800 dark:hx-bg-neutral-900 hx-absolute hx-top-full hx-z-20 hx-mt-2 hx-overflow-auto hx-overscroll-contain hx-rounded-xl hx-py-2.5 hx-shadow-xl hx-max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] md:hx-max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] hx-inset-x-0 ltr:md:hx-left-auto rtl:md:hx-right-auto contrast-more:hx-border contrast-more:hx-border-gray-900 contrast-more:dark:hx-border-gray-50 hx-w-screen hx-min-h-[100px] hx-max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+
+  </div>
+  <div class="hextra-scrollbar hx-overflow-y-auto hx-overflow-x-hidden hx-p-4 hx-grow md:hx-h-[calc(100vh-var(--navbar-height)-var(--menu-height))]">
+    <ul class="hx-flex hx-flex-col hx-gap-1 md:hx-hidden">
+      
+      
+          <li class="open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/"
+    
+  >Tutorials
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/python/"
+    
+  >Python Fundamentals
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a>
+              <div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/docs/python/strings/"
+    
+  >Strings
+    </a>
+  
+    <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li>
+              <a
+                href="#"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              ></a>
+            </li>
+          </ul>
+  
+              
+            </li></ul>
+      </div>
+            </li></ul>
+      </div></li>
+          <li class=""><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/"
+    
+  >Blog
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/algorithms/gcd/"
+    
+  >Greatest Common Divisor Alogrithm
+    </a>
+              
+            </li></ul>
+      </div></li>
+    </ul>
+
+    <ul class="hx-flex hx-flex-col hx-gap-1 max-md:hx-hidden">
+        
+          <li class="open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/python/"
+    
+  >Python Fundamentals
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/docs/python/strings/"
+    
+  >Strings
+    </a>
+              
+            </li></ul>
+      </div></li>
+        
+      </ul>
+    </div>
+  
+  </aside>
+    
+<nav class="hextra-toc hx-order-last hx-hidden hx-w-64 hx-shrink-0 xl:hx-block print:hx-hidden hx-px-4" aria-label="table of contents">
+    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4"><p class="hx-mb-4 hx-font-semibold hx-tracking-tight">On this page</p><ul>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#memory-allocation-basics">Memory Allocation Basics
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#contiguous-memory-in-string-buffers">Contiguous Memory in String Buffers
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#immutability">Immutability
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#how-can-we-access-the-characters-in-a-string">How can we access the characters in a string?
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-8 rtl:hx-pr-8 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#indexing">Indexing
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-8 rtl:hx-pr-8 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#slicing">Slicing
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#additon">Additon
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#multiplication">Multiplication
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#membership-operators-in-and-not-in">Membership Operators: In and not in
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#strip-lstrip-rstrip-operations">strip(), lstrip(), rstrip() Operations
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#find-operationn">find() Operationn
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#replace-operation">replace() Operation
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#split-operation">split() Operation
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#join-operation">join() Operation
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="ltr:hx-pl-4 rtl:hx-pr-4 hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#time-and-space-complexity-of-common-string-operations">Time and Space Complexity of Common String Operations
+        </a>
+      </li></ul>
+      <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
+        <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="hx-transition-all hx-duration-75 hx-opacity-0 hx-text-xs hx-font-medium hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-100 contrast-more:hx-text-gray-800 contrast-more:dark:hx-text-gray-50">
+          <span>Scroll to top</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hx-inline ltr:hx-ml-1 rtl:hx-mr-1 hx-h-3.5 hx-w-3.5 hx-border hx-rounded-full hx-border-gray-500 hover:hx-border-gray-900 dark:hx-border-gray-400 dark:hover:hx-border-gray-100 contrast-more:hx-border-gray-800 contrast-more:dark:hx-border-gray-50">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+    <article class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main class="hx-w-full hx-min-w-0 hx-max-w-6xl hx-px-6 hx-pt-4 md:hx-px-12">
+        
+  <div class="hx-mt-1.5 hx-flex hx-items-center hx-gap-1 hx-overflow-hidden hx-text-sm hx-text-gray-500 dark:hx-text-gray-400 contrast-more:hx-text-current">
+        <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
+          <a href="/docs/">Tutorials</a>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
+          <a href="/docs/python/">Python Fundamentals</a>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Strings</div>
+  </div>
+
+        <div class="content">
+          <h1>Strings</h1>
+          <hr>
+<p>In all programming languages, including Python, the <strong>string</strong> data type represents a fundamental data type. In Python, a string is defined as a <strong>sequence of characters</strong> enclosed within single (&rsquo;&hellip;&rsquo;), double (&quot;&hellip;&quot;), or triple quotes (&rsquo;&rsquo;&rsquo;&hellip;&rsquo;&rsquo;&rsquo; or &ldquo;&rdquo;&quot;&hellip;&quot;&quot;&quot;). This sequence can include alphabets, digits, symbols, or Unicode characters.</p>
+<h3><strong>Memory Allocation Basics</strong><span class="hx-absolute -hx-mt-20" id="memory-allocation-basics"></span>
+    <a href="#memory-allocation-basics" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Traditionally, each character was considered to occupy <strong>1 byte</strong> of memory, with the total string size computed as the number of characters multiplied by one byte. For example, the string &ldquo;hello&rdquo; corresponds to the ASCII values [104, 101, 108, 108, 111] and is stored in five contiguous memory locations—i.e., five sequential bytes in memory.</p>
+<h3><strong>Contiguous Memory in String Buffers</strong><span class="hx-absolute -hx-mt-20" id="contiguous-memory-in-string-buffers"></span>
+    <a href="#contiguous-memory-in-string-buffers" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Python strings allocate <strong>contiguous memory</strong> for their character buffers. This arrangement, managed via the PyUnicodeObject structure, contains metadata (length, encoding kind, hash) alongside a pointer to the underlying contiguous byte array, enabling efficient random access and slicing operations.</p>
+<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-flex-col hx-rounded-lg hx-border hx-py-4 hx-px-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200">
+  <p class="hx-flex hx-items-center hx-font-medium"><svg height=16px class="hx-inline-block hx-align-middle hx-mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Note</p>
+
+  <div class="hx-w-full hx-min-w-0 hx-leading-7">
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>However, in the newer versions of python (after 3.3), PEP 393 is introduced which does a smart way to handle the encoding to save memory. A detailed article will be made on this and linked here. Stay tuned for the updates. For now, we assume we are not dealing with the more special characters and hence consider ASCII encoding as the standard for this tutorial.</p>
+</div>
+  </div>
+</div>
+<h3><strong>Immutability</strong><span class="hx-absolute -hx-mt-20" id="immutability"></span>
+    <a href="#immutability" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>The behaviour that once an object is created, cannot be changed or modified is called immutability. Strings are immutable in nature and hence once created can&rsquo;t be modified.</p>
+<h3><strong>How can we access the characters in a string?</strong><span class="hx-absolute -hx-mt-20" id="how-can-we-access-the-characters-in-a-string"></span>
+    <a href="#how-can-we-access-the-characters-in-a-string" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Accessing a string can be done in two ways:</p>
+<ol>
+<li>Indexing</li>
+<li>Slicing</li>
+</ol>
+<h4><em>Indexing</em><span class="hx-absolute -hx-mt-20" id="indexing"></span>
+    <a href="#indexing" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>We can access characters of a string by using the indexes. There are two types of indexes - Positive and Negative.</p>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## synatax ##</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># char = s[i]</span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello world&#34;</span>
+</span></span><span style="display:flex;"><span>print(s[<span style="color:#ae81ff">0</span>])  <span style="color:#75715e"># Output: &#39;h&#39;</span>
+</span></span><span style="display:flex;"><span>print(s[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])  <span style="color:#75715e"># Output: &#39;d&#39;</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<ul>
+<li><strong>Time Complexity - O(1)</strong>: Since the string will be stored in contingious memoty locatuions, the time complexity of indexing is O(1)</li>
+<li><strong>Space Complexity - O(1)</strong>: No extra strings are created when accessing using the indexing and hence the space complexity is also O(1)</li>
+</ul>
+<h4><em>Slicing</em><span class="hx-absolute -hx-mt-20" id="slicing"></span>
+    <a href="#slicing" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Slicing is the operation of extracting a portion of a string using a range of indices. In Python, this is done using the syntax:</p>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## syntax ##</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#substring = original_string[start:end]</span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello world&#34;</span>
+</span></span><span style="display:flex;"><span>print(s[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">5</span>])  <span style="color:#75715e"># Output: &#39;hello&#39;</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<p>This creates a new string that includes characters from index start up to, but not including, end.</p>
+<ul>
+<li>
+<p><strong>Time Complexity - O(k)</strong>: Because python has to copy each of the k characters from the original string to create a new string (k is the length of the resulting substring end - start) and takes linear time, the complexity is O(k).</p>
+</li>
+<li>
+<p><strong>Space Complexity - O(k)</strong>: Because strings are immutable, a new string is always created during slicing. This new string takes up space proportional to k characters.</p>
+</li>
+</ul>
+<h3><strong>Additon</strong><span class="hx-absolute -hx-mt-20" id="additon"></span>
+    <a href="#additon" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Adding or concatenation of the strings creates a brand-new string that contains all characters from s1 followed by all characters from s2. Python must allocate new memory and copy over both strings.</p>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello&#34;</span>
+</span></span><span style="display:flex;"><span>s2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;world&#34;</span>
+</span></span><span style="display:flex;"><span>s3 <span style="color:#f92672">=</span> s1 <span style="color:#f92672">+</span> s2
+</span></span><span style="display:flex;"><span>print(s3)  <span style="color:#75715e"># Output: &#39;helloworld&#39;</span>
+</span></span><span style="display:flex;"><span>print(s1<span style="color:#f92672">.</span>concat(s2))  <span style="color:#75715e"># Output: &#39;helloworld&#39;</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<ul>
+<li>
+<p><strong>Time Complexity - O(n + m)</strong>: Because python has to copy the both the original strings to create a new string and takes linear time, the complexity is O(n + m) time.</p>
+</li>
+<li>
+<p><strong>Space Complexity - O(n + m)</strong>: Because strings are immutable, a new string is always created with the combined content. This new string takes up space proportional to n + m characters.</p>
+</li>
+</ul>
+<h3><strong>Multiplication</strong><span class="hx-absolute -hx-mt-20" id="multiplication"></span>
+    <a href="#multiplication" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>This repeats the original string n times, resulting in a string of length n * len(s). Python performs the repetition by allocating enough memory and copying the string n times, leading to O(n * len(s)) time and space complexity.</p>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello&#34;</span>
+</span></span><span style="display:flex;"><span>n <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>s1 <span style="color:#f92672">=</span> s <span style="color:#f92672">*</span> n
+</span></span><span style="display:flex;"><span>print(s1)  <span style="color:#75715e"># Output: &#39;hellohellohello&#39;</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<ul>
+<li>
+<p><strong>Time Complexity - O(n * len(s))</strong>: Python performs the repetition by allocating enough memory and copying the string n times, leading to O(n * len(s)) time complexity.</p>
+</li>
+<li>
+<p><strong>Space Complexity -O(n * len(s))</strong>: O(n + m) space complexity</p>
+</li>
+</ul>
+<h3><strong>Membership Operators: In and not in</strong><span class="hx-absolute -hx-mt-20" id="membership-operators-in-and-not-in"></span>
+    <a href="#membership-operators-in-and-not-in" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>The in and not in operators in Python are used to check for the existence of a substring within another string. These are membership operators and return boolean value as per the existence</p>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#e6db74">&#34;ell&#34;</span> <span style="color:#f92672">in</span> <span style="color:#e6db74">&#34;hello&#34;</span>   <span style="color:#75715e"># True</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;x&#34;</span> <span style="color:#f92672">in</span> <span style="color:#e6db74">&#34;hello&#34;</span>     <span style="color:#75715e"># False</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#e6db74">&#34;ell&#34;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> <span style="color:#e6db74">&#34;hello&#34;</span>   <span style="color:#75715e"># False</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;x&#34;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> <span style="color:#e6db74">&#34;hello&#34;</span>     <span style="color:#75715e"># True</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<ul>
+<li>
+<p><strong>Time Complexity - O(n x m)</strong>: The time complexitiy of the membership operators would be O(n x m), where n is the length of the string <strong>s</strong> and m is be the legnth of the substring <strong>sub</strong>. Python loops through every possible starting position in s where sub could fit. At each position, it checks character-by-character if sub matches the corresponding slice of s.</p>
+<ol>
+<li>Each time a comparision of length m is made which adds O(m) time complexity</li>
+<li>It is made for whole length of n of the string which adds O(n) time complexity</li>
+<li>Hence the overall time complexity is O(n x m)</li>
+</ol>
+</li>
+<li>
+<p><strong>Space Complexity - O(1)</strong>: The space complexity is O(1), because a new string is not created in these operations</p>
+</li>
+</ul>
+<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-flex-col hx-rounded-lg hx-border hx-py-4 hx-px-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200">
+  <p class="hx-flex hx-items-center hx-font-medium"><svg height=16px class="hx-inline-block hx-align-middle hx-mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Note</p>
+
+  <div class="hx-w-full hx-min-w-0 hx-leading-7">
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>CPython uses fast substring search algorithms (e.g., Boyer-Moore or variations), so the average case is faster, often close to O(n + m), but the worst-case theoretical time is O(n × m).</p>
+</div>
+  </div>
+</div>
+<h3><strong>strip(), lstrip(), rstrip() Operations</strong><span class="hx-absolute -hx-mt-20" id="strip-lstrip-rstrip-operations"></span>
+    <a href="#strip-lstrip-rstrip-operations" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>These are whitespace-trimming operations that return a new string with characters removed from either or both ends.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Method</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>s.strip()</code></td>
+          <td>Removes leading and trailing whitespace (both ends)</td>
+      </tr>
+      <tr>
+          <td><code>s.lstrip()</code></td>
+          <td>Removes whitespace only from the left (start)</td>
+      </tr>
+      <tr>
+          <td><code>s.rstrip()</code></td>
+          <td>Removes whitespace only from the right (end)</td>
+      </tr>
+  </tbody>
+</table>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;  hello  &#34;</span>
+</span></span><span style="display:flex;"><span>print(s<span style="color:#f92672">.</span>strip())      <span style="color:#75715e"># &#39;hello&#39;</span>
+</span></span><span style="display:flex;"><span>print(s<span style="color:#f92672">.</span>lstrip())     <span style="color:#75715e"># &#39;hello  &#39;</span>
+</span></span><span style="display:flex;"><span>print(s<span style="color:#f92672">.</span>rstrip())     <span style="color:#75715e"># &#39;  hello&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;**hello**&#34;</span>
+</span></span><span style="display:flex;"><span>print(s2<span style="color:#f92672">.</span>strip(<span style="color:#e6db74">&#34;*&#34;</span>))  <span style="color:#75715e"># &#39;hello&#39;</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<p>Python will start from the beginning (or end) and skips over all removable characters. Then copies the remaining characters into a new string (due to immutability).</p>
+<ul>
+<li>
+<p><strong>Time Complexity - O(n)</strong>: he maximum number of characters it may need to look at is the full length of the string. Hence the time complexity is O(n).</p>
+</li>
+<li>
+<p><strong>Space Complexity -O(n)</strong>: O(n) space complexity because a new string will be created.</p>
+</li>
+</ul>
+<h3><strong>find() Operationn</strong><span class="hx-absolute -hx-mt-20" id="find-operationn"></span>
+    <a href="#find-operationn" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>The find() method is used to locate the first occurrence of a substring within another string. It returns the index of the first matching element or -1 if not found.</p>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">### syntax ###</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   s.find(sub[, start[, end]]) #</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;machine learning&#34;</span>
+</span></span><span style="display:flex;"><span>print(s<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#34;learn&#34;</span>))     <span style="color:#75715e"># Output: 8</span>
+</span></span><span style="display:flex;"><span>print(s<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#34;deep&#34;</span>))      <span style="color:#75715e"># Output: -1</span>
+</span></span><span style="display:flex;"><span>print(s<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">10</span>))  <span style="color:#75715e"># Output: 6</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<ul>
+<li><strong>Time Complexity - O(n x m)</strong>: It works similarly to the in operator sliding a window of size len(sub) over the string. At each position, checks if the substring matches. Stops when the first match is found. Hence the time complexity is O(n x m)</li>
+<li><strong>Space Complexity - O(1)</strong>: the space complexity is O(1).</li>
+</ul>
+<p>index() is similar to find() except that it throws an exception in case the sub string is not found</p>
+<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-flex-col hx-rounded-lg hx-border hx-py-4 hx-px-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200">
+  <p class="hx-flex hx-items-center hx-font-medium"><svg height=16px class="hx-inline-block hx-align-middle hx-mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Note</p>
+
+  <div class="hx-w-full hx-min-w-0 hx-leading-7">
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>CPython uses fast substring search algorithms (e.g., Boyer-Moore or variations), so the average case is faster, often close to O(n + m), but the worst-case theoretical time is O(n × m).</p>
+</div>
+  </div>
+</div>
+<h3><strong>replace() Operation</strong><span class="hx-absolute -hx-mt-20" id="replace-operation"></span>
+    <a href="#replace-operation" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>The replace() method returns a new string where all (or a limited number of) occurrences of a specified substring are replaced with another substring. In case of zero occurences of the specified string, it returns the original string without creating a new one</p>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">### syntax ###</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   s.replace(old, new[, count])</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># s = &#34;data science is a science&#34;</span>
+</span></span><span style="display:flex;"><span>print(s<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;science&#34;</span>, <span style="color:#e6db74">&#34;engineering&#34;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: &#34;data engineering is a engineering&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(s<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;science&#34;</span>, <span style="color:#e6db74">&#34;engineering&#34;</span>, <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: &#34;data engineering is a science&#34;</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<ol>
+<li>
+<p>Python scans the string from left to right.</p>
+</li>
+<li>
+<p>Each time it finds old, it replaces it with new.</p>
+</li>
+<li>
+<p>Stops after count replacements if provided.</p>
+</li>
+<li>
+<p>Constructs a new string (because strings are immutable).</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>Time Complexity - O(n)</strong>: The time complexity is O(n).</p>
+</li>
+<li>
+<p><strong>Space Complexity - O(1)</strong>: the space complexity is O(1).</p>
+</li>
+</ul>
+<h3><strong>split() Operation</strong><span class="hx-absolute -hx-mt-20" id="split-operation"></span>
+    <a href="#split-operation" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>The split() method divides a string into a list of substrings, using a delimiter (separator). It’s commonly used to tokenize a string.</p>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">### syntax ###</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   s.split(sep=None, maxsplit=-1)</span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Python is fun&#34;</span>
+</span></span><span style="display:flex;"><span>print(s<span style="color:#f92672">.</span>split())  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: [&#39;Python&#39;, &#39;is&#39;, &#39;fun&#39;]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2025-07-09&#34;</span>
+</span></span><span style="display:flex;"><span>print(s<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;-&#34;</span>))  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: [&#39;2025&#39;, &#39;07&#39;, &#39;09&#39;]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;one,two,three,four&#34;</span>
+</span></span><span style="display:flex;"><span>print(s<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;,&#34;</span>, <span style="color:#ae81ff">2</span>))  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: [&#39;one&#39;, &#39;two&#39;, &#39;three,four&#39;]</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<ol>
+<li>
+<p>Python iterates over the string from left to right.</p>
+</li>
+<li>
+<p>At each match of the delimiter, it extracts the current token and starts collecting the next one.</p>
+</li>
+<li>
+<p>Once all matches are found or maxsplit is reached, the remaining part is returned as the final substring.</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>Time Complexity - O(n)</strong>: Each character is read once.</p>
+</li>
+<li>
+<p><strong>Space Complexity - O(1)</strong>: A new list with up to k substrings is created (depending on number of splits).</p>
+</li>
+</ul>
+<h3><strong>join() Operation</strong><span class="hx-absolute -hx-mt-20" id="join-operation"></span>
+    <a href="#join-operation" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>The join() method is used to concatenate (combine) elements of an iterable (like a list or tuple of strings) into a single string, with a separator (the string calling join()) inserted between each element.</p>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">### syntax ###</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   separator.join(iterable)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>words <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;Python&#34;</span>, <span style="color:#e6db74">&#34;is&#34;</span>, <span style="color:#e6db74">&#34;awesome&#34;</span>]
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">.</span>join(words)
+</span></span><span style="display:flex;"><span>print(result)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: &#34;Python is awesome&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fields <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;2025&#34;</span>, <span style="color:#e6db74">&#34;07&#34;</span>, <span style="color:#e6db74">&#34;09&#34;</span>]
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;,&#34;</span><span style="color:#f92672">.</span>join(fields)
+</span></span><span style="display:flex;"><span>print(result)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: &#34;2025,07,09&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>chars <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#e6db74">&#34;c&#34;</span>]
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join(chars))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: &#34;abc&#34;</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<ol>
+<li>
+<p>Python first calculates the total length of the final string in memory to optimize allocation.</p>
+</li>
+<li>
+<p>Then it iteratively copies each string from the iterable and inserts the separator between them.</p>
+</li>
+<li>
+<p>Strings are immutable, so a new string is created (efficiently, in one pass—not through repeated concatenation).</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>Time Complexity - O(n)</strong>: Python loops once over the iterable to compute the result.</p>
+</li>
+<li>
+<p><strong>Space Complexity - O(1)</strong>:  A new string is created with the combined content.</p>
+</li>
+</ul>
+<h3><strong>Time and Space Complexity of Common String Operations</strong><span class="hx-absolute -hx-mt-20" id="time-and-space-complexity-of-common-string-operations"></span>
+    <a href="#time-and-space-complexity-of-common-string-operations" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+  <thead>
+      <tr>
+          <th>Operation</th>
+          <th>Time Complexity</th>
+          <th>Space Complexity</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>s[i]</code></td>
+          <td>O(1)</td>
+          <td>O(1)</td>
+          <td>Retrieve character at index <code>i</code></td>
+      </tr>
+      <tr>
+          <td><code>s[start:end]</code></td>
+          <td>O(k)</td>
+          <td>O(k)</td>
+          <td>Extract substring of length <code>k</code>; a new string is created</td>
+      </tr>
+      <tr>
+          <td><code>s1 + s2</code></td>
+          <td>O(n + m)</td>
+          <td>O(n + m)</td>
+          <td>Concatenate strings of length <code>n</code> and <code>m</code>; new memory is allocated</td>
+      </tr>
+      <tr>
+          <td><code>s * n</code></td>
+          <td>O(n * len(s))</td>
+          <td>O(n * len(s))</td>
+          <td>Repeat string <code>n</code> times; creates a new string with repeated content</td>
+      </tr>
+      <tr>
+          <td><code>len(s)</code></td>
+          <td>O(1)</td>
+          <td>O(1)</td>
+          <td>Return number of characters</td>
+      </tr>
+      <tr>
+          <td><code>'sub' in s</code></td>
+          <td>O(n * m) worst-case</td>
+          <td>O(1)</td>
+          <td>Substring search using pattern matching algorithms</td>
+      </tr>
+      <tr>
+          <td><code>s1 == s2</code></td>
+          <td>O(k)</td>
+          <td>O(1)</td>
+          <td>Character-wise equality comparison</td>
+      </tr>
+      <tr>
+          <td><code>s.strip()</code></td>
+          <td>O(n)</td>
+          <td>O(n)</td>
+          <td>Trim leading/trailing whitespace</td>
+      </tr>
+      <tr>
+          <td><code>s.replace(a, b)</code></td>
+          <td>O(n)</td>
+          <td>O(n)</td>
+          <td>Replace all instances of <code>a</code> with <code>b</code></td>
+      </tr>
+      <tr>
+          <td><code>s.split(delim)</code></td>
+          <td>O(n)</td>
+          <td>O(k)</td>
+          <td>Divide string into substrings at delimiter</td>
+      </tr>
+      <tr>
+          <td><code>delim.join(list)</code></td>
+          <td>O(n)</td>
+          <td>O(n)</td>
+          <td>Join list of strings with delimiter</td>
+      </tr>
+      <tr>
+          <td><code>s.lower()</code></td>
+          <td>O(n)</td>
+          <td>O(n)</td>
+          <td>Convert string to lowercase</td>
+      </tr>
+      <tr>
+          <td><code>s.upper()</code></td>
+          <td>O(n)</td>
+          <td>O(n)</td>
+          <td>Convert string to uppercase</td>
+      </tr>
+      <tr>
+          <td><code>s.find(sub)</code></td>
+          <td>O(n * m) worst-case</td>
+          <td>O(1)</td>
+          <td>Return index of first occurrence or -1</td>
+      </tr>
+      <tr>
+          <td><code>s.index(sub)</code></td>
+          <td>O(n * m) worst-case</td>
+          <td>O(1)</td>
+          <td>Like <code>find</code>, but raises error if not found</td>
+      </tr>
+      <tr>
+          <td><code>s.count(sub)</code></td>
+          <td>O(n * m) worst-case</td>
+          <td>O(1)</td>
+          <td>Count occurrences of substring</td>
+      </tr>
+      <tr>
+          <td><code>s.startswith(sub)</code></td>
+          <td>O(k)</td>
+          <td>O(1)</td>
+          <td>Test if string begins with substring</td>
+      </tr>
+      <tr>
+          <td><code>s.endswith(sub)</code></td>
+          <td>O(k)</td>
+          <td>O(1)</td>
+          <td>Test if string ends with substring</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+        </div>
+        <div class="hx-mt-16"></div>
+        
+        
+      </main>
+    </article>
+  </div>
+
+      <footer class="hextra-footer hx-bg-gray-100 hx-pb-[env(safe-area-inset-bottom)] dark:hx-bg-neutral-900 print:hx-bg-transparent"><div
+      class="hextra-custom-footer hx-max-w-screen-xl hx-pl-[max(env(safe-area-inset-left),1.5rem)] hx-pr-[max(env(safe-area-inset-right),1.5rem)] hx-text-gray-600 dark:hx-text-gray-400"
+    ></div></footer>
+    
+    <script defer src="/js/main.min.370889c531c801fc7b668d92e18b304bbc2fb61f3d720b0e507cc87de8167ff2.js" integrity="sha256-NwiJxTHIAfx7Zo2S4YswS7wvth89cgsOUHzIfegWf/I="></script>
+<script defer src="/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js" integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script>
+    <script defer src="/en.search.min.0b444174a2d66936193755eccfb66af827ce3d9e3aa2223167ea9490ce97ace4.js" integrity="sha256-C0RBdKLWaTYZN1Xsz7Zq&#43;CfOPZ46oiIxZ&#43;qUkM6XrOQ="></script>
+  </body>
+</html>

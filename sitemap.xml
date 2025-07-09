@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ruhansharief.github.io/coderarms/blog/algorithms/gcd/</loc>
+    <loc>/blog/algorithms/gcd/</loc>
     <lastmod>2020-03-06T21:29:01+08:00</lastmod>
   </url><url>
-    <loc>https://ruhansharief.github.io/coderarms/docs/</loc>
+    <loc>/docs/python/strings/</loc>
   </url><url>
-    <loc>https://ruhansharief.github.io/coderarms/categories/algorithms/</loc>
+    <loc>/docs/</loc>
+  </url><url>
+    <loc>/docs/python/</loc>
+  </url><url>
+    <loc>/categories/algorithms/</loc>
     <lastmod>2020-03-06T21:29:01+08:00</lastmod>
   </url><url>
-    <loc>https://ruhansharief.github.io/coderarms/tags/alogorithm/</loc>
+    <loc>/tags/alogorithm/</loc>
     <lastmod>2020-03-06T21:29:01+08:00</lastmod>
   </url><url>
-    <loc>https://ruhansharief.github.io/coderarms/blog/</loc>
+    <loc>/blog/</loc>
     <lastmod>2020-03-06T21:29:01+08:00</lastmod>
   </url><url>
-    <loc>https://ruhansharief.github.io/coderarms/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2020-03-06T21:29:01+08:00</lastmod>
   </url><url>
-    <loc>https://ruhansharief.github.io/coderarms/</loc>
+    <loc>/</loc>
     <lastmod>2020-03-06T21:29:01+08:00</lastmod>
   </url><url>
-    <loc>https://ruhansharief.github.io/coderarms/tags/python/</loc>
+    <loc>/tags/python/</loc>
     <lastmod>2020-03-06T21:29:01+08:00</lastmod>
   </url><url>
-    <loc>https://ruhansharief.github.io/coderarms/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2020-03-06T21:29:01+08:00</lastmod>
   </url>
 </urlset>
