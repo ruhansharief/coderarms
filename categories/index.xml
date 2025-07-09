@@ -1,13 +1,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CoderArms Blog – Categories</title>
-    <link>/categories/</link>
+    <link>https://ruhansharief.github.io/coderarms/categories/</link>
     <description>Recent content in Categories on CoderArms Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 06 Mar 2020 21:29:01 +0800</lastBuildDate>
     
-	  <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://ruhansharief.github.io/coderarms/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
       
