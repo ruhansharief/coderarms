@@ -10,27 +10,27 @@
 <link rel="icon" href="/coderarms/favicon-32x32.png" type="image/png" sizes="32x32" />
 <link rel="apple-touch-icon" href="/coderarms/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/coderarms/site.webmanifest" rel="manifest" />
-<title>Greatest Common Divisor Alogrithm – CoderArms Blog</title>
-  <meta name="description" content="Go through the GCD alogirthm from brute force to the best optimized solution" /><link rel="canonical" href="https://ruhansharief.github.io/coderarms/blog/algorithms/gcd/" itemprop="url" />
+<title>Merge Strings Alternately – CoderArms Blog</title>
+  <meta name="description" content="Leet code question 1768" /><link rel="canonical" href="https://ruhansharief.github.io/coderarms/blog/leetcode/1768/" itemprop="url" />
 
-<meta property="og:title" content="Greatest Common Divisor Alogrithm" />
-<meta property="og:description" content="Go through the GCD alogirthm from brute force to the best optimized solution" />
+<meta property="og:title" content="Merge Strings Alternately" />
+<meta property="og:description" content="Leet code question 1768" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ruhansharief.github.io/coderarms/blog/algorithms/gcd/" /><meta property="og:image" content="https://ruhansharief.github.io/coderarms/py.png" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2020-03-06T21:29:01+08:00" />
-<meta property="article:modified_time" content="2020-03-06T21:29:01+08:00" />
+<meta property="og:url" content="https://ruhansharief.github.io/coderarms/blog/leetcode/1768/" /><meta property="og:image" content="https://ruhansharief.github.io/coderarms/py.png" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2025-07-11T21:29:01+08:00" />
+<meta property="article:modified_time" content="2025-07-11T21:29:01+08:00" />
 
-  <meta itemprop="name" content="Greatest Common Divisor Alogrithm">
-  <meta itemprop="description" content="Go through the GCD alogirthm from brute force to the best optimized solution">
-  <meta itemprop="datePublished" content="2020-03-06T21:29:01+08:00">
-  <meta itemprop="dateModified" content="2020-03-06T21:29:01+08:00">
-  <meta itemprop="wordCount" content="503">
+  <meta itemprop="name" content="Merge Strings Alternately">
+  <meta itemprop="description" content="Leet code question 1768">
+  <meta itemprop="datePublished" content="2025-07-11T21:29:01+08:00">
+  <meta itemprop="dateModified" content="2025-07-11T21:29:01+08:00">
+  <meta itemprop="wordCount" content="433">
   <meta itemprop="image" content="https://ruhansharief.github.io/coderarms/py.png">
-  <meta itemprop="keywords" content="Python,Alogorithm">
+  <meta itemprop="keywords" content="Python,Leetcode,Blog,Easy">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://ruhansharief.github.io/coderarms/py.png">
-  <meta name="twitter:title" content="Greatest Common Divisor Alogrithm">
-  <meta name="twitter:description" content="Go through the GCD alogirthm from brute force to the best optimized solution">
+  <meta name="twitter:title" content="Merge Strings Alternately">
+  <meta name="twitter:description" content="Leet code question 1768">
 
     <link rel="preload" href="/coderarms/css/compiled/main.min.9a2a4c6e602ce30f10fa86afbb1ce624db853742eeccc2e954764594ee62c18f.css" as="style" integrity="sha256-mipMbmAs4w8Q&#43;oavuxzmJNuFN0LuzMLpVHZFlO5iwY8=" />
     <link href="/coderarms/css/compiled/main.min.9a2a4c6e602ce30f10fa86afbb1ce624db853742eeccc2e954764594ee62c18f.css" rel="stylesheet" integrity="sha256-mipMbmAs4w8Q&#43;oavuxzmJNuFN0LuzMLpVHZFlO5iwY8=" />
@@ -192,48 +192,42 @@
   >Blogs
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
-        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col open"><a
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/coderarms/blog/algorithms/gcd/"
     
   >Greatest Common Divisor Alogrithm
     </a>
-  
-    <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li>
-              <a
-                href="#naive-method"
-                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
-              >Naive method</a>
-            </li>
-          <li>
-              <a
-                href="#1-improvisation---single-scan"
-                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
-              >1 Improvisation - Single Scan</a>
-            </li>
-          <li>
-              <a
-                href="#improvisation-2----no-lists"
-                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
-              >Improvisation 2  - No lists</a>
-            </li>
-          <li>
-              <a
-                href="#improvisation-3-scan-backwards"
-                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
-              >Improvisation 3: Scan Backwards</a>
-            </li>
-          </ul>
-  
               
-            </li><li class="hx-flex hx-flex-col "><a
+            </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
     href="/coderarms/blog/leetcode/1768/"
     
   >Merge Strings Alternately
     </a>
+  
+    <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li>
+              <a
+                href="#problem-statement"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Problem Statement</a>
+            </li>
+          <li>
+              <a
+                href="#approach"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Approach</a>
+            </li>
+          <li>
+              <a
+                href="#code"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Code</a>
+            </li>
+          </ul>
+  
               
             </li></ul>
       </div></li>
@@ -246,19 +240,15 @@
 <nav class="hextra-toc hx-order-last hx-hidden hx-w-64 hx-shrink-0 xl:hx-block print:hx-hidden hx-px-4" aria-label="table of contents">
     <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4"><p class="hx-mb-4 hx-font-semibold hx-tracking-tight">On this page</p><ul>
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
-        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#naive-method">Naive method
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#problem-statement">Problem Statement
         </a>
       </li>
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
-        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#1-improvisation---single-scan">1 Improvisation - Single Scan
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#approach">Approach
         </a>
       </li>
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
-        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#improvisation-2----no-lists">Improvisation 2  - No lists
-        </a>
-      </li>
-      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
-        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#improvisation-3-scan-backwards">Improvisation 3: Scan Backwards
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#code">Code
         </a>
       </li></ul>
       <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
@@ -279,124 +269,120 @@
   <div class="hx-mt-1.5 hx-flex hx-items-center hx-gap-1 hx-overflow-hidden hx-text-sm hx-text-gray-500 dark:hx-text-gray-400 contrast-more:hx-text-current">
         <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
           <a href="/coderarms/blog/">Blogs</a>
-        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Greatest Common Divisor Alogrithm</div>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Merge Strings Alternately</div>
   </div>
 
-        <h1 class="hx-mt-2 hx-text-4xl hx-font-bold hx-tracking-tight hx-text-slate-900 dark:hx-text-slate-100">Greatest Common Divisor Alogrithm</h1>
-        <div class="hx-mt-4 hx-mb-16 hx-text-gray-500 hx-text-sm hx-flex hx-items-center hx-flex-wrap hx-gap-y-2"><span class="hx-mr-1">March 6, 2020</span></div>
+        <h1 class="hx-mt-2 hx-text-4xl hx-font-bold hx-tracking-tight hx-text-slate-900 dark:hx-text-slate-100">Merge Strings Alternately</h1>
+        <div class="hx-mt-4 hx-mb-16 hx-text-gray-500 hx-text-sm hx-flex hx-items-center hx-flex-wrap hx-gap-y-2"><span class="hx-mr-1">July 11, 2025</span></div>
         <div class="content">
-          <p>Go through the <strong>GCD alogirthm</strong> from brute force to the best optimized solution</p>
-<h2>Naive method<span class="hx-absolute -hx-mt-20" id="naive-method"></span>
-    <a href="#naive-method" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Algorithm:</p>
+          <h2><strong>Problem Statement</strong><span class="hx-absolute -hx-mt-20" id="problem-statement"></span>
+    <a href="#problem-statement" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Given two strings <strong><code>word1</code></strong> and <strong><code>word2</code></strong>, merge them by taking characters alternately from each. Begin with the first character of <strong><code>word1</code></strong>, followed by the first character of <strong><code>word2</code></strong>, and so on. If one string is longer than the other, append the remaining characters of the longer string at the end.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+  <p>Input: word1 = &ldquo;abc&rdquo;, word2 = &ldquo;pqr&rdquo;
+Output: &ldquo;apbqcr&rdquo;</p>
+
+</blockquote>
+<p><em>Explanation:</em> The merged string will be merged as so:</p>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><pre><code>word1:  a   b   c
+word2:    p   q   r
+merged: a p b q c r</code></pre></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<p><strong>Example 2:</strong></p>
+<blockquote>
+  <p>Input: word1 = &ldquo;ab&rdquo;, word2 = &ldquo;pqrs&rdquo;
+Output: &ldquo;apbqrs&rdquo;</p>
+
+</blockquote>
+<p><em>Explanation:</em> Notice that as word2 is longer, &ldquo;rs&rdquo; is appended to the end.</p>
+<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><pre><code>word1:  a   b 
+word2:    p   q r s
+merged: a p b q r s</code></pre></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+  <button
+    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
+    title="Copy code"
+  >
+    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
+    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
+  </button>
+</div>
+</div>
+<h2><strong>Approach</strong><span class="hx-absolute -hx-mt-20" id="approach"></span>
+    <a href="#approach" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Things to consider:</p>
+<ol>
+<li>
+<p>This is an easy problem that can be solved efficiently using a two-pointer technique.</p>
+</li>
+<li>
+<p>Since Python strings are immutable, adding characters to a string in a loop (e.g., via +=) creates a new string each time, leading to poor performance. To avoid this, collect characters in a list and join them into a string at the end, which is more memory-efficient.</p>
+</li>
+<li>
+<p>The goal is to achieve:</p>
 <ul>
-<li>First check for the factors of each number by looping the intergers from 1 to that number.</li>
-<li>Add the factors to a list</li>
-<li>Repeat the above two steps for both the numbers</li>
-<li>Then loop in thorugh the one of the list and sort out the common numbers in both.</li>
-<li>Since the common list will be in ascending order, return the last number which would be the gcd.</li>
-<li>The algorithm can be improved in many places.</li>
+<li><strong>Time complexity:</strong> O(n + m)</li>
+<li><strong>Space complexity:</strong> O(n + m)</li>
 </ul>
-<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+</li>
+</ol>
+<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-flex-col hx-rounded-lg hx-border hx-py-4 hx-px-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200">
+  <p class="hx-flex hx-items-center hx-font-medium"><svg height=16px class="hx-inline-block hx-align-middle hx-mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Note</p>
 
-<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">factors</span>(x):
-</span></span><span style="display:flex;"><span>  f <span style="color:#f92672">=</span> []
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>,x<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> x<span style="color:#f92672">%</span>i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-</span></span><span style="display:flex;"><span>      f<span style="color:#f92672">.</span>append(i)
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> f
+  <div class="hx-w-full hx-min-w-0 hx-leading-7">
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>where n is length of word1 and m is length of word2</p>
+</div>
+  </div>
+</div>
+<p><em>Steps:</em></p>
+<ul>
+<li>Assign two pointers, each one pointing to first character in each string. Lets take them as <strong><code>word1_pointer</code></strong> and <strong><code>word2_pointer</code></strong> and assing them to <code>0</code> (first character)</li>
+<li>Assign a empty list <strong><code>merged_list</code></strong> to save the characters alternatively. (Lists in python are like dynamic arrays)</li>
+<li>Run a loop <strong><code>n+m</code></strong> times because the final list will be of length <strong><code>n+m</code></strong> (length of both <strong><code>word1</code></strong> and <strong><code>word2</code></strong> added)</li>
+<li>Start with <strong><code>word1</code></strong> and in each iteration, keep adding the character to which each pointer is pointing to the list. And then increment the pointers.</li>
+<li>Since the loop runs for the length <strong><code>n+m</code></strong>, we need some condition inside the loop for scenarios like <strong><code>n&gt;m</code></strong> or <strong><code>n&lt;m</code></strong> and that condition would be to check the pointer is not crosing the length of the string.</li>
+<li>At the end of the loop, we will have a all the characters alternatively as items in <strong><code>merged_list</code></strong>. Join them together as as string and return it.</li>
+</ul>
+<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-flex-col hx-rounded-lg hx-border hx-py-4 hx-px-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200">
+  <p class="hx-flex hx-items-center hx-font-medium"><svg height=16px class="hx-inline-block hx-align-middle hx-mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Note</p>
+
+  <div class="hx-w-full hx-min-w-0 hx-leading-7">
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>The list to string conversion is also of time complexity O(n) which doesn&rsquo;t change the order of n.</p>
+</div>
+  </div>
+</div>
+<h2><strong>Code</strong><span class="hx-absolute -hx-mt-20" id="code"></span>
+    <a href="#code" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
+
+<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mergeAlternately</span>(word1: str, word2: str) <span style="color:#f92672">-&gt;</span> str:
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gcd</span>(m,n):
-</span></span><span style="display:flex;"><span>  fm <span style="color:#f92672">=</span> factors(m)
-</span></span><span style="display:flex;"><span>  fn <span style="color:#f92672">=</span> factors(n)
-</span></span><span style="display:flex;"><span>  comm <span style="color:#f92672">=</span> []
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> fm:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> i <span style="color:#f92672">in</span> fn:
-</span></span><span style="display:flex;"><span>      comm<span style="color:#f92672">.</span>append(i)
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> comm[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>  word1_pointer <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  word2_pointer <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>print(gcd(<span style="color:#ae81ff">14</span>,<span style="color:#ae81ff">63</span>))</span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
-  <button
-    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
-    title="Copy code"
-  >
-    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
-    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
-  </button>
-</div>
-</div>
-<h2>1 Improvisation - Single Scan<span class="hx-absolute -hx-mt-20" id="1-improvisation---single-scan"></span>
-    <a href="#1-improvisation---single-scan" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>We are scanning 1 to m and 1 to n to find the common factors. Instead we can just scan from 1 to max(m,n) so that one scan (loop) would be sufficient.</li>
-<li>For each i in 1 to max(m,n) add i to fm if it divides m and add i to fn it divides n.</li>
-<li>We are computing two lists and then checking for the common numbers among them.</li>
-<li>Instead, we can create only one list which contains the numbers which divide both m and n.</li>
-<li>For each i in 1 to max(m,n) add the i to comm if it divides both m and n.</li>
-<li>Actually the common factor would be smaller or equal to the smaller number among m and n.
-Hence scannig the numbers from 1 to min(m,n) would suffice.</li>
-</ul>
-<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
-
-<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gcd</span>(m,n):
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#Improvisation 1</span>
-</span></span><span style="display:flex;"><span>  comm <span style="color:#f92672">=</span> []
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>,min(m,n)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> m <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> n <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-</span></span><span style="display:flex;"><span>      comm<span style="color:#f92672">.</span>append(i)
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> comm[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]</span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
-  <button
-    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
-    title="Copy code"
-  >
-    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
-    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
-  </button>
-</div>
-</div>
-<h2>Improvisation 2  - No lists<span class="hx-absolute -hx-mt-20" id="improvisation-2----no-lists"></span>
-    <a href="#improvisation-2----no-lists" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>Its not required to store all the common factors in a list.</li>
-<li>Instead we can just store the common factor in a variable (rather than list).</li>
-<li>While scanning for the common factor, if we get one then the variable should be replaced with earlier factor.</li>
-</ul>
-<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
-
-<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gcd2</span>(m,n):
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#Improvisation 2</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>,min(m,n)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> m <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> n <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-</span></span><span style="display:flex;"><span>      mrcomm <span style="color:#f92672">=</span> i <span style="color:#75715e"># We will not get the name error as there would be atleast one common factor that is 1.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> mrcomm</span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
-  <button
-    class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
-    title="Copy code"
-  >
-    <div class="copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4"></div>
-    <div class="success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4"></div>
-  </button>
-</div>
-</div>
-<h2>Improvisation 3: Scan Backwards<span class="hx-absolute -hx-mt-20" id="improvisation-3-scan-backwards"></span>
-    <a href="#improvisation-3-scan-backwards" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>In the above steps we are scanning from 1 and checking all the common factors.</li>
-<li>Since we want the greatest common factor, scanning from backwards would give us the result much faster in many cases.</li>
-</ul>
-<div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
-
-<div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gcd3_1</span>(m,n):
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#Improvisation 3</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(min(m,n),<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> m <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> n <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> i
+</span></span><span style="display:flex;"><span>  merged_list <span style="color:#f92672">=</span> []
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gcd3_2</span>(m,n):
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#Improvisation 3 - while loop - using while loop is recommended</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#because in for loop the range gets all the values, in while that time can be reduced.</span>
-</span></span><span style="display:flex;"><span>  i <span style="color:#f92672">=</span> min(m,n)
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> i<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> m <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> n <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> i
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>      i <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> iteration <span style="color:#f92672">in</span> range(len(word1)<span style="color:#f92672">+</span>len(word2)):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> word1_pointer <span style="color:#f92672">&lt;</span> len(word1):
+</span></span><span style="display:flex;"><span>      merged_list<span style="color:#f92672">.</span>append(word1[word1_pointer])
+</span></span><span style="display:flex;"><span>      word1_pointer <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> word2_pointer <span style="color:#f92672">&lt;</span> len(word2):
+</span></span><span style="display:flex;"><span>      merged_list<span style="color:#f92672">.</span>append(word2[word2_pointer])
+</span></span><span style="display:flex;"><span>      word2_pointer <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join(merged_list)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(mergeAlternately(<span style="color:#e6db74">&#34;abc&#34;</span>,<span style="color:#e6db74">&#34;pqr&#34;</span>))</span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
   <button
     class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
     title="Copy code"
@@ -406,11 +392,12 @@ Hence scannig the numbers from 1 to min(m,n) would suffice.</li>
   </button>
 </div>
 </div>
+
         </div><div class="hx-mt-16"></div><div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a
-        href="/coderarms/blog/leetcode/1768/"
-        title="Merge Strings Alternately"
-        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
-      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Merge Strings Alternately</a></div></main>
+        href="/coderarms/blog/algorithms/gcd/"
+        title="Greatest Common Divisor Alogrithm"
+        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-ml-auto ltr:hx-pl-4 ltr:hx-text-right rtl:hx-mr-auto rtl:hx-pr-4 rtl:hx-text-left"
+      >Greatest Common Divisor Alogrithm<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div></main>
     </article>
   </div>
 
