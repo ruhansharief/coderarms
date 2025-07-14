@@ -59,7 +59,7 @@ Output: &lt;code&gt;False&lt;/code&gt;&lt;/p&gt;
     &lt;a href=&#34;#learnings&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Avoid shortcuts like starting the loop at index 2 &lt;strong&gt;just to prevent index errors&lt;/strong&gt;; it&amp;rsquo;s better to write explicit, readable conditions for edge positions.&lt;/li&gt;
 &lt;li&gt;Handle &lt;strong&gt;edge cases&lt;/strong&gt; by understanding what positions are truly &amp;ldquo;safe&amp;rdquo; for planting.&lt;/li&gt;
-&lt;li&gt;Use &lt;strong&gt;short-circuiting&lt;/strong&gt; logic for clean condition checking.&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;short-circuiting&lt;/strong&gt; logic for clean condition checking. See the &lt;a href=&#34;https://ruhansharief.github.io/coderarms/blog/leetcode/short-circuit&#34; &gt;blog post&lt;/a&gt; page for more details.&lt;/li&gt;
 &lt;li&gt;The solution modifies the input array in-place but could be adjusted to avoid mutation if required.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
